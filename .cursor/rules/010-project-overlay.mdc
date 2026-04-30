@@ -1,0 +1,27 @@
+---
+description: Use when editing or relying on project overlay files.
+globs: .cursor/project/**
+alwaysApply: false
+---
+
+# Project Overlay Rule
+
+Files under `.cursor/project/` customize the template for one repository.
+
+File responsibilities:
+
+- `PROJECT.md`: project identity, goals, enabled packs, high-level constraints.
+- `STRUCTURE.md`: folder layout, module map, ownership, generated files, project-specific patterns.
+- `TOOLING.md`: install, build, test, lint, format, run, and verification commands.
+- `CODING_CONVENTIONS.md`: concrete coding style for the repository.
+- `RULES.md`: repository-specific hard and soft rules.
+- `WORKFLOW.md`: phase/task execution plan.
+- `PROGRESS.md`: human-readable workflow status.
+
+Keep the separation clean:
+
+- Do not put task plans in `PROJECT.md`.
+- Do not put coding style in `STRUCTURE.md`.
+- Do not put folder ownership maps in `CODING_CONVENTIONS.md`.
+- Do not put reusable Cursor behavior in project overlays.
+

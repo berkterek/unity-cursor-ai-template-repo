@@ -1,0 +1,30 @@
+---
+description: Use when editing Unity-specific project files or Unity pack guidance.
+globs: Assets/**,.cursor/packs/unity-game/**
+alwaysApply: false
+---
+
+# Unity Pack Rule
+
+Use this rule for Unity projects and Unity-specific template files.
+
+Unity-specific guidance belongs in `.cursor/packs/unity-game/`.
+
+Detailed Unity setup agent guidance lives in:
+
+- `.cursor/packs/unity-game/agents/unity-setup.md`
+
+Use the Unity pack for:
+
+- Unity Editor setup.
+- Scenes, prefabs, and assets.
+- Unity package/tooling guidance.
+- Unity-specific validation and smoke checks.
+- Unity-specific workflow behavior.
+
+Do not put one project's exact folder names, scene names, or architecture
+decisions into the Unity pack unless they are meant to be reusable across Unity
+projects.
+
+For repository-specific Unity structure, use `.cursor/project/STRUCTURE.md`.
+For repository-specific Unity coding style, use `.cursor/project/CODING_CONVENTIONS.md`.

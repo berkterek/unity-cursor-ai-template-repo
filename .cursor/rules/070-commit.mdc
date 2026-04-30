@@ -1,0 +1,32 @@
+---
+description: Use when grouping and committing completed work.
+globs:
+alwaysApply: false
+---
+
+# Commit Rule
+
+Only commit after relevant work has passed review or when the user explicitly
+asks for a checkpoint commit.
+
+Read `.cursor/core/agents/committer.md` before grouping commits.
+
+Commit behavior:
+
+- Inspect all changed and untracked files.
+- Do not commit secrets, credentials, or local machine files.
+- Group changes by dependency and feature boundary.
+- Do not mix unrelated systems in one commit.
+- Do not add AI attribution unless the project explicitly requires it.
+- Do not push unless the user explicitly asks.
+
+Suggested commit order:
+
+1. Project/build configuration.
+2. Shared interfaces and contracts.
+3. Infrastructure.
+4. Feature implementation.
+5. Tests.
+6. Documentation.
+
+Use the repository's commit message convention when one exists.

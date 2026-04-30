@@ -1,0 +1,37 @@
+---
+description: Use when writing, updating, or reviewing tests.
+globs:
+alwaysApply: false
+---
+
+# Testing Rule
+
+Read:
+
+- `.cursor/core/agents/tester.md`
+- `.cursor/project/TOOLING.md`
+- `.cursor/project/CODING_CONVENTIONS.md`
+- `.cursor/project/RULES.md`
+- Existing nearby tests.
+
+Testing behavior:
+
+- Test observable behavior, not private implementation details.
+- Cover happy paths, important edge cases, and error paths.
+- Keep tests deterministic and isolated.
+- Use the repository's existing fake/mock style.
+- Do not introduce a new mocking framework without approval.
+- Avoid sleeps, real network calls, and unnecessary file system dependencies.
+
+Recommended naming when no project rule exists:
+
+```text
+ClassNameTests
+MethodName_WhenCondition_ExpectedBehavior
+```
+
+Verification:
+
+- Run the narrowest relevant test first.
+- Run broader verification for shared or risky changes.
+- Report skipped tests and why.

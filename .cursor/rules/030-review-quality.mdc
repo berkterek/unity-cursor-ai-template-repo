@@ -1,0 +1,48 @@
+---
+description: Use for code review, validation, and quality gates.
+globs:
+alwaysApply: false
+---
+
+# Review And Quality Rule
+
+Review stance:
+
+1. Correctness bugs.
+2. Acceptance criteria misses.
+3. Behavioral regressions.
+4. Broken dependency boundaries.
+5. Missing tests for meaningful risk.
+6. Maintainability issues that cause near-term cost.
+
+Review against:
+
+- `.cursor/core/agents/reviewer.md` for the detailed reviewer role.
+- `.cursor/core/commands/validate.md` for phase validation.
+- `.cursor/project/WORKFLOW.md` acceptance criteria.
+- `.cursor/project/STRUCTURE.md` boundaries and ownership.
+- `.cursor/project/TOOLING.md` verification commands.
+- `.cursor/project/RULES.md` hard and soft rules.
+- `.cursor/project/CODING_CONVENTIONS.md` style decisions.
+- Enabled packs under `.cursor/packs/`.
+
+Verdict format:
+
+```markdown
+## Review Result: PASS | FAIL
+
+Task: [task id and title]
+Files reviewed: [list]
+
+Findings:
+1. [CRITICAL|MAJOR|MINOR] path:line - issue
+   Fix: specific fix
+
+Verification:
+- [command]: [result]
+
+Residual risk:
+- [none or concise risk]
+```
+
+Do not fail work on personal preference when no project rule exists.

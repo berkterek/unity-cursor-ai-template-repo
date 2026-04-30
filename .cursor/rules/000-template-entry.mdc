@@ -1,0 +1,31 @@
+---
+description: Always use this repository's Cursor workflow template and project overlays.
+globs:
+alwaysApply: true
+---
+
+# Template Entry Rule
+
+This repository uses a `.cursor` workflow template.
+
+Before substantial work:
+
+- Read `.cursor/README.md`.
+- Read relevant files in `.cursor/project/`.
+- Treat `.cursor/rules/` as reusable Cursor behavior.
+- Treat `.cursor/core/` as reusable detailed workflow templates.
+- Treat `.cursor/project/` as repository-specific overlay.
+- Treat `.cursor/packs/` as technology-specific guidance.
+
+Default behavior:
+
+- Put coding style in `.cursor/project/CODING_CONVENTIONS.md`.
+- Put folder/module/ownership structure in `.cursor/project/STRUCTURE.md`.
+- Put build/test/lint commands in `.cursor/project/TOOLING.md`.
+- Put phase/task plans in `.cursor/project/WORKFLOW.md`.
+- Do not move repository-specific rules into reusable rules.
+- For detailed role behavior, use `.cursor/core/agents/`.
+- For dry-run, orchestration, resume, status, stop, or validation behavior, use
+  `.cursor/core/commands/`.
+- For event, progress, mailbox, heartbeat, and checkpoint formats, use
+  `.cursor/core/protocols/`.

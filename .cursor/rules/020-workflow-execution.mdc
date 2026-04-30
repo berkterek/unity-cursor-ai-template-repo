@@ -1,0 +1,51 @@
+---
+description: Use when dry-running, executing, validating, pausing, resuming, or reporting workflow state.
+globs:
+alwaysApply: false
+---
+
+# Workflow Execution Rule
+
+Use `.cursor/project/WORKFLOW.md` as the execution plan.
+
+Before execution:
+
+- Read `.cursor/project/PROJECT.md`.
+- Read `.cursor/project/STRUCTURE.md`.
+- Read `.cursor/project/TOOLING.md`.
+- Read `.cursor/project/RULES.md`.
+- Read `.cursor/project/CODING_CONVENTIONS.md`.
+- Read relevant command docs in `.cursor/core/commands/`.
+- Read relevant state protocols in `.cursor/core/protocols/`.
+- Read relevant agent docs in `.cursor/core/agents/`.
+- Read enabled packs under `.cursor/packs/`.
+
+Execution protocol:
+
+1. Dry-run the workflow when requested or when risk is unclear.
+2. Execute one phase at a time.
+3. Respect task inputs, outputs, dependencies, and acceptance criteria.
+4. Do not run two write tasks in parallel if outputs overlap.
+5. Review completed work before marking tasks done.
+6. Run verification commands from `TOOLING.md`.
+7. Update `PROGRESS.md`.
+8. Append recovery events to `EVENTS.jsonl` when orchestration starts.
+
+Runtime files:
+
+- `.cursor/project/PROGRESS.md`: human-readable status.
+- `.cursor/project/EVENTS.jsonl`: append-only recovery journal.
+- `.cursor/runtime/mailbox/`: progress messages for long-running work.
+- `.cursor/runtime/heartbeat/`: liveness state.
+- `.cursor/runtime/checkpoint/`: recovery notes.
+
+Do not delete runtime recovery files while work is active or paused.
+
+Detailed command behavior:
+
+- Dry run: `.cursor/core/commands/dry-run.md`.
+- Execute workflow: `.cursor/core/commands/orchestrate.md`.
+- Resume workflow: `.cursor/core/commands/continue.md`.
+- Report status: `.cursor/core/commands/status.md`.
+- Pause workflow: `.cursor/core/commands/stop.md`.
+- Validate phase completion: `.cursor/core/commands/validate.md`.

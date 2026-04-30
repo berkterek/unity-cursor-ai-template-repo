@@ -1,0 +1,34 @@
+---
+description: Use when implementing code, docs, config, or project changes.
+globs:
+alwaysApply: false
+---
+
+# Implementation Rule
+
+Before editing:
+
+- Read `.cursor/core/agents/coder.md`.
+- Read `.cursor/project/PROJECT.md`.
+- Read `.cursor/project/STRUCTURE.md`.
+- Read `.cursor/project/RULES.md`.
+- Read `.cursor/project/CODING_CONVENTIONS.md`.
+- Read `.cursor/project/TOOLING.md`.
+- Read enabled packs under `.cursor/packs/`.
+
+Implementation behavior:
+
+- Keep edits scoped to the task.
+- Prefer existing project patterns over new abstractions.
+- Do not rewrite unrelated code.
+- Do not edit generated files unless explicitly asked.
+- Do not create speculative public API.
+- Preserve user changes and nearby work.
+- Update tests or docs when behavior or public workflow changes.
+
+Before finishing:
+
+- Verify acceptance criteria.
+- Run the narrowest relevant check from `TOOLING.md`.
+- Report any command that could not be run.
+- Mention residual risks.
