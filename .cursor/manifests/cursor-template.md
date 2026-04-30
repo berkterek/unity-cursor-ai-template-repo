@@ -31,6 +31,19 @@ This `.cursor` template adapts the repository workflow to Cursor Project Rules.
 - `060-testing.mdc`: testing routing rule.
 - `070-commit.mdc`: commit routing rule.
 
+## Unity Pack Files
+
+- `packs/unity-game/agents/unity-setup.md`: Unity Editor, scene, prefab,
+  asset, package, and runtime setup guidance.
+- `packs/unity-game/guides/unity-mcp.md`: Unity MCP workflow, batching,
+  console checks, and MCP vs file-edit rules.
+- `packs/unity-game/guides/input-system.md`: New Input System as the default
+  input approach for new Unity projects.
+- `packs/unity-game/guides/serialization-safety.md`: serialized field rename,
+  prefab, asset, and ScriptableObject safety rules.
+- `manifests/skills-review.md`: review of which source skills belong in the
+  base template and which should stay optional.
+
 ## Separation Contract
 
 - `rules/` should stay Cursor-readable and concise.

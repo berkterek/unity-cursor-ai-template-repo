@@ -14,7 +14,8 @@ Cursor. It provides:
 - Core workflow command templates.
 - Progress, event, mailbox, heartbeat, and checkpoint protocols.
 - Project overlay files that each Unity project fills in.
-- A Unity pack area for Unity-specific setup and validation.
+- A small Unity pack for Unity MCP, New Input System, serialization safety, and
+  setup rules.
 - Coding convention templates.
 
 ## Folder Layout
@@ -47,8 +48,13 @@ Cursor. It provides:
 │   └── CODING_CONVENTIONS.md
 ├── packs/
 │   └── unity-game/
-│       └── agents/
-│           └── unity-setup.md
+│       ├── README.md
+│       ├── agents/
+│       │   └── unity-setup.md
+│       └── guides/
+│           ├── unity-mcp.md
+│           ├── input-system.md
+│           └── serialization-safety.md
 └── manifests/
 ```
 
@@ -66,6 +72,31 @@ Do not put project-specific coding style into `rules/` or `core/`. Put it in
 
 Do not put project-specific folder or module structure into `rules/` or `core/`.
 Put it in `.cursor/project/STRUCTURE.md`.
+
+Do not put full gameplay, genre, platform, engine-system, or third-party package
+references into the base template. Keep those as optional per-project packs.
+
+## Unity Pack
+
+The included Unity pack is intentionally small and reusable:
+
+```text
+.cursor/packs/unity-game/
+```
+
+It includes:
+
+- `agents/unity-setup.md`: Unity Editor, scene, prefab, asset, package, and
+  runtime setup guidance.
+- `guides/unity-mcp.md`: Unity MCP workflow, batching, console checks, and MCP
+  vs file-edit rules.
+- `guides/input-system.md`: New Input System as the default input approach for
+  new Unity projects.
+- `guides/serialization-safety.md`: serialized field rename, prefab, asset, and
+  ScriptableObject safety rules.
+
+The base template does not include large genre or package-specific references.
+Those should be added only when a project needs them.
 
 ## First-Time Use In A Unity Project
 
@@ -133,6 +164,10 @@ Use .cursor/core/commands/status.md and report the current workflow state.
 | `.cursor/project/WORKFLOW.md` | Phase/task execution plan. |
 | `.cursor/project/PROGRESS.md` | Human-readable workflow status. |
 | `.cursor/packs/unity-game/` | Unity-specific reusable guidance. |
+| `.cursor/packs/unity-game/README.md` | Unity pack overview. |
+| `.cursor/packs/unity-game/guides/unity-mcp.md` | Unity MCP workflow and verification loop. |
+| `.cursor/packs/unity-game/guides/input-system.md` | New Input System default guidance. |
+| `.cursor/packs/unity-game/guides/serialization-safety.md` | Unity serialized data safety rules. |
 
 ## Recommended `.gitignore`
 

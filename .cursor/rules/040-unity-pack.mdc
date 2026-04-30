@@ -14,10 +14,19 @@ Detailed Unity setup agent guidance lives in:
 
 - `.cursor/packs/unity-game/agents/unity-setup.md`
 
+Reusable Unity pack guides live in:
+
+- `.cursor/packs/unity-game/guides/unity-mcp.md`
+- `.cursor/packs/unity-game/guides/input-system.md`
+- `.cursor/packs/unity-game/guides/serialization-safety.md`
+
 Use the Unity pack for:
 
 - Unity Editor setup.
 - Scenes, prefabs, and assets.
+- Unity MCP workflow and console verification.
+- New Input System defaults.
+- Unity serialization safety.
 - Unity package/tooling guidance.
 - Unity-specific validation and smoke checks.
 - Unity-specific workflow behavior.
@@ -28,3 +37,6 @@ projects.
 
 For repository-specific Unity structure, use `.cursor/project/STRUCTURE.md`.
 For repository-specific Unity coding style, use `.cursor/project/CODING_CONVENTIONS.md`.
+
+Do not import full gameplay, genre, platform, engine-system, or third-party
+package references into the base Cursor temp. Keep those optional per project.

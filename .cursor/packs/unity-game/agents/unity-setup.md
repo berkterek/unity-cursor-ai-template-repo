@@ -20,8 +20,13 @@ Read these when they exist:
 - `.cursor/project/TOOLING.md`
 - `.cursor/project/RULES.md`
 - `.cursor/packs/unity-game/`
+- `.cursor/packs/unity-game/guides/unity-mcp.md`
+- `.cursor/packs/unity-game/guides/serialization-safety.md`
 - The task assignment and acceptance criteria.
 - Relevant design/workflow documents.
+
+Also read `.cursor/packs/unity-game/guides/input-system.md` when the task
+touches input, controls, devices, rebinding, UI navigation, or mobile touch.
 
 ## Responsibilities
 
@@ -41,6 +46,9 @@ Read these when they exist:
 - Do not place editor-only APIs in runtime assemblies.
 - Respect project-specific object creation policy.
 - Use existing project folder and naming conventions.
+- Preserve serialized data when renaming fields.
+- For new Unity input work, prefer the New Input System unless the project
+  overlay explicitly requires legacy input.
 
 ## Verification
 
