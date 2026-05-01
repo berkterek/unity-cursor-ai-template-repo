@@ -16,6 +16,7 @@ Detailed Unity setup agent guidance lives in:
 
 Reusable Unity pack guides live in:
 
+- `.cursor/packs/unity-game/guides/guardrails.md`
 - `.cursor/packs/unity-game/guides/unity-mcp.md`
 - `.cursor/packs/unity-game/guides/input-system.md`
 - `.cursor/packs/unity-game/guides/serialization-safety.md`
@@ -27,6 +28,7 @@ Use the Unity pack for:
 - Unity MCP workflow and console verification.
 - New Input System defaults.
 - Unity serialization safety.
+- Unity high-risk change guardrails.
 - Unity package/tooling guidance.
 - Unity-specific validation and smoke checks.
 - Unity-specific workflow behavior.

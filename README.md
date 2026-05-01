@@ -15,8 +15,8 @@ Cursor. It provides:
 - Progress, event, mailbox, heartbeat, and checkpoint protocols.
 - Project overlay files that each Unity project fills in.
 - A small Unity pack for Unity MCP, New Input System, serialization safety, and
-  setup rules.
-- Coding convention templates.
+  guardrail/setup rules.
+- Coding, game design, and technical design templates.
 
 ## Folder Layout
 
@@ -43,15 +43,19 @@ Cursor. It provides:
 │   ├── TOOLING.md
 │   ├── RULES.md
 │   ├── CODING_CONVENTIONS.md
+│   ├── LEARNED.md
 │   └── PROGRESS.md
 ├── templates/
-│   └── CODING_CONVENTIONS.md
+│   ├── CODING_CONVENTIONS.md
+│   ├── GDD_TEMPLATE.md
+│   └── TDD_TEMPLATE.md
 ├── packs/
 │   └── unity-game/
 │       ├── README.md
 │       ├── agents/
 │       │   └── unity-setup.md
 │       └── guides/
+│           ├── guardrails.md
 │           ├── unity-mcp.md
 │           ├── input-system.md
 │           └── serialization-safety.md
@@ -64,7 +68,8 @@ Cursor. It provides:
 - `core/` contains reusable detailed workflow behavior.
 - `project/` is filled per repository.
 - `packs/` contains technology-specific guidance, such as Unity.
-- `templates/` contains reusable fill-in documents.
+- `templates/` contains reusable fill-in documents such as coding
+  conventions, GDD, and TDD.
 - `manifests/` records template decisions.
 
 Do not put project-specific coding style into `rules/` or `core/`. Put it in
@@ -75,6 +80,9 @@ Put it in `.cursor/project/STRUCTURE.md`.
 
 Do not put full gameplay, genre, platform, engine-system, or third-party package
 references into the base template. Keep those as optional per-project packs.
+
+Use `.cursor/project/LEARNED.md` for repeated project-specific patterns
+discovered over time. Do not use it for generic Unity advice or temporary notes.
 
 ## Unity Pack
 
@@ -88,6 +96,9 @@ It includes:
 
 - `agents/unity-setup.md`: Unity Editor, scene, prefab, asset, package, and
   runtime setup guidance.
+- `guides/guardrails.md`: high-risk Unity safety checklist for serialized
+  files, editor/runtime separation, input boundaries, scene ownership, and asset
+  references.
 - `guides/unity-mcp.md`: Unity MCP workflow, batching, console checks, and MCP
   vs file-edit rules.
 - `guides/input-system.md`: New Input System as the default input approach for
@@ -107,8 +118,14 @@ Those should be added only when a project needs them.
 5. Fill `.cursor/project/TOOLING.md`.
 6. Fill `.cursor/project/CODING_CONVENTIONS.md`.
 7. Fill `.cursor/project/RULES.md`.
-8. Create a phase/task plan in `.cursor/project/WORKFLOW.md`.
-9. Ask Cursor to dry-run, validate, or execute the workflow.
+8. Use `.cursor/templates/GDD_TEMPLATE.md` when the game or feature design
+   needs clarification.
+9. Use `.cursor/templates/TDD_TEMPLATE.md` when the technical design needs to
+   be planned before implementation.
+10. Fill `.cursor/project/LEARNED.md` over time with repeated project-specific
+    patterns.
+11. Create a phase/task plan in `.cursor/project/WORKFLOW.md`.
+12. Ask Cursor to dry-run, validate, or execute the workflow.
 
 ## Typical Cursor Prompts
 
@@ -161,10 +178,14 @@ Use .cursor/core/commands/status.md and report the current workflow state.
 | `.cursor/project/TOOLING.md` | Build, test, lint, format, and Unity commands. |
 | `.cursor/project/RULES.md` | Repository-specific hard and soft rules. |
 | `.cursor/project/CODING_CONVENTIONS.md` | Concrete coding style for the project. |
+| `.cursor/project/LEARNED.md` | Repeated project-specific patterns discovered during work. |
 | `.cursor/project/WORKFLOW.md` | Phase/task execution plan. |
 | `.cursor/project/PROGRESS.md` | Human-readable workflow status. |
+| `.cursor/templates/GDD_TEMPLATE.md` | Game design document template. |
+| `.cursor/templates/TDD_TEMPLATE.md` | Technical design document template. |
 | `.cursor/packs/unity-game/` | Unity-specific reusable guidance. |
 | `.cursor/packs/unity-game/README.md` | Unity pack overview. |
+| `.cursor/packs/unity-game/guides/guardrails.md` | Unity high-risk change checklist. |
 | `.cursor/packs/unity-game/guides/unity-mcp.md` | Unity MCP workflow and verification loop. |
 | `.cursor/packs/unity-game/guides/input-system.md` | New Input System default guidance. |
 | `.cursor/packs/unity-game/guides/serialization-safety.md` | Unity serialized data safety rules. |

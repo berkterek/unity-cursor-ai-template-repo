@@ -19,7 +19,9 @@ Read these when they exist:
 - `.cursor/project/CODING_CONVENTIONS.md`
 - `.cursor/project/TOOLING.md`
 - `.cursor/project/RULES.md`
+- `.cursor/project/LEARNED.md`
 - `.cursor/packs/unity-game/`
+- `.cursor/packs/unity-game/guides/guardrails.md`
 - `.cursor/packs/unity-game/guides/unity-mcp.md`
 - `.cursor/packs/unity-game/guides/serialization-safety.md`
 - The task assignment and acceptance criteria.

@@ -10,6 +10,7 @@ most Unity projects, not full gameplay implementations or genre recipes.
 | Guide | Purpose |
 |-------|---------|
 | `agents/unity-setup.md` | Unity Editor, scene, prefab, asset, package, and runtime setup guidance. |
+| `guides/guardrails.md` | Unity high-risk change checklist. |
 | `guides/unity-mcp.md` | Unity MCP usage rules and verification loop. |
 | `guides/input-system.md` | New Input System default guidance. |
 | `guides/serialization-safety.md` | Unity serialized data safety rules. |
@@ -22,6 +23,7 @@ most Unity projects, not full gameplay implementations or genre recipes.
 - Unity MCP workflow.
 - New Input System defaults.
 - Unity serialization safety.
+- Unity high-risk change guardrails.
 - Unity package and test runner notes.
 - Unity-specific validation and smoke checks.
 

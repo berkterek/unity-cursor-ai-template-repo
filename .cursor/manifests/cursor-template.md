@@ -35,6 +35,7 @@ This `.cursor` template adapts the repository workflow to Cursor Project Rules.
 
 - `packs/unity-game/agents/unity-setup.md`: Unity Editor, scene, prefab,
   asset, package, and runtime setup guidance.
+- `packs/unity-game/guides/guardrails.md`: high-risk Unity safety checklist.
 - `packs/unity-game/guides/unity-mcp.md`: Unity MCP workflow, batching,
   console checks, and MCP vs file-edit rules.
 - `packs/unity-game/guides/input-system.md`: New Input System as the default
