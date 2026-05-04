@@ -1,0 +1,20 @@
+---
+description: Use when writing or reviewing Update loops, physics code, rendering code, or UI canvas setup.
+globs: Assets/**/*.cs,_GameFolders/**/*.cs
+alwaysApply: false
+---
+
+# Performance Rule
+
+Read `.cursor/packs/unity-game/guides/performance.md` before writing or reviewing any per-frame code path.
+
+Key rules (NON-NEGOTIABLE):
+
+- Zero heap allocations in `Update`, `FixedUpdate`, and `LateUpdate`.
+- Cache `GetComponent<T>()` and `Camera.main` in `Awake` — never call in `Update`.
+- No LINQ on hot paths — use manual loops.
+- No string concatenation on hot paths.
+- Use `MaterialPropertyBlock` for per-instance color/property changes — never access `renderer.material`.
+- Split UI Canvases by update frequency (HUD, Static, Popups).
+- Use non-allocating physics variants: `RaycastNonAlloc`, `OverlapSphereNonAlloc`.
+- Pool frequently instantiated objects — never `Instantiate`/`Destroy` in hot paths.

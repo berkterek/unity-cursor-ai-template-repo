@@ -1,0 +1,21 @@
+---
+description: Use when editing ECS/DOTS systems, components, authorings, or hybrid OOP-ECS bridging code.
+globs: Assets/**/Ecs/**,_GameFolders/**/Ecs/**
+alwaysApply: false
+---
+
+# ECS DOTS Rule
+
+Read `.cursor/packs/unity-game/guides/ecs-dots.md` before writing or reviewing any ECS system, component, or authoring.
+
+Key rules (NON-NEGOTIABLE):
+
+- No `EntityManager.CreateEntity()` without a prefab source — use Authoring + Baker pattern.
+- Every entity has an Authoring MonoBehaviour and a matching Baker inner class.
+- Runtime config data is written by Systems, not Bakers.
+- Component naming: data → no suffix, tag → `Tag`, cleanup → `CleanupData`, managed ref → `Reference`.
+- Structural changes (`AddComponent`, `RemoveComponent`, `DestroyEntity`) inside systems MUST use `EntityCommandBuffer`.
+- `ISystem` (Burst) uses `IJobEntity` + `ScheduleParallel` — NOT `foreach`.
+- `SystemBase` acts as the managed bridge — Mono ↔ ECS goes through `SystemBase`, not directly to `ISystem`.
+- Every system declares `[UpdateInGroup]` explicitly — no implicit default group.
+- ECS code lives in `Ecs/Authorings/`, `Ecs/Components/`, `Ecs/Systems/` — never in `Abstracts/` or `Concretes/`.

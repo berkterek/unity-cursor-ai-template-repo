@@ -20,6 +20,11 @@ Reusable Unity pack guides live in:
 - `.cursor/packs/unity-game/guides/unity-mcp.md`
 - `.cursor/packs/unity-game/guides/input-system.md`
 - `.cursor/packs/unity-game/guides/serialization-safety.md`
+- `.cursor/packs/unity-game/guides/architecture.md`
+- `.cursor/packs/unity-game/guides/csharp-coding.md`
+- `.cursor/packs/unity-game/guides/performance.md`
+- `.cursor/packs/unity-game/guides/ecs-dots.md`
+- `.cursor/packs/unity-game/guides/addressables.md`
 
 Use the Unity pack for:
 

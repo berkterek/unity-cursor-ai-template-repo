@@ -14,8 +14,9 @@ Cursor. It provides:
 - Core workflow command templates.
 - Progress, event, mailbox, heartbeat, and checkpoint protocols.
 - Project overlay files that each Unity project fills in.
-- A small Unity pack for Unity MCP, New Input System, serialization safety, and
-  guardrail/setup rules.
+- A Unity pack for Unity MCP, New Input System, serialization safety,
+  architecture (VContainer/IEventBus), C# coding conventions, performance,
+  ECS/DOTS, Addressables, and guardrail/setup rules.
 - Coding, game design, and technical design templates.
 
 ## Folder Layout
@@ -31,7 +32,11 @@ Cursor. It provides:
 │   ├── 040-unity-pack.mdc
 │   ├── 050-implementation.mdc
 │   ├── 060-testing.mdc
-│   └── 070-commit.mdc
+│   ├── 070-commit.mdc
+│   ├── 080-architecture.mdc
+│   ├── 090-performance.mdc
+│   ├── 100-ecs-dots.mdc
+│   └── 110-addressables.mdc
 ├── core/
 │   ├── agents/
 │   ├── commands/
@@ -58,7 +63,12 @@ Cursor. It provides:
 │           ├── guardrails.md
 │           ├── unity-mcp.md
 │           ├── input-system.md
-│           └── serialization-safety.md
+│           ├── serialization-safety.md
+│           ├── architecture.md
+│           ├── csharp-coding.md
+│           ├── performance.md
+│           ├── ecs-dots.md
+│           └── addressables.md
 └── manifests/
 ```
 
@@ -105,6 +115,16 @@ It includes:
   new Unity projects.
 - `guides/serialization-safety.md`: serialized field rename, prefab, asset, and
   ScriptableObject safety rules.
+- `guides/architecture.md`: VContainer DI, 5-file module structure, IEventBus
+  pattern, MonoBehaviour adapter pattern, no-singleton rule.
+- `guides/csharp-coding.md`: naming conventions, namespace policy, `#region`
+  order, UniTask/async rules, null check rules (Unity vs plain C#).
+- `guides/performance.md`: zero-alloc hot paths, caching, MaterialPropertyBlock,
+  UI Canvas splitting by update frequency, object pooling.
+- `guides/ecs-dots.md`: Authoring/Baker pattern, component naming, ISystem +
+  IJobEntity, EntityCommandBuffer, hybrid OOP-ECS linking.
+- `guides/addressables.md`: no `Resources.Load`, UniTask async loading, handle
+  lifecycle, centralized address constants.
 
 The base template does not include large genre or package-specific references.
 Those should be added only when a project needs them.
@@ -169,7 +189,7 @@ Use .cursor/core/commands/status.md and report the current workflow state.
 
 | File | Purpose |
 |------|---------|
-| `.cursor/rules/*.mdc` | Cursor Project Rules. |
+| `.cursor/rules/*.mdc` | Cursor Project Rules (000–110). |
 | `.cursor/core/agents/` | Reusable role templates for implementation, tests, review, and commits. |
 | `.cursor/core/commands/` | Reusable workflow commands such as dry run, orchestrate, continue, status, stop, and validate. |
 | `.cursor/core/protocols/` | Reusable runtime state formats. |
@@ -189,6 +209,11 @@ Use .cursor/core/commands/status.md and report the current workflow state.
 | `.cursor/packs/unity-game/guides/unity-mcp.md` | Unity MCP workflow and verification loop. |
 | `.cursor/packs/unity-game/guides/input-system.md` | New Input System default guidance. |
 | `.cursor/packs/unity-game/guides/serialization-safety.md` | Unity serialized data safety rules. |
+| `.cursor/packs/unity-game/guides/architecture.md` | VContainer DI, module structure, IEventBus, MonoBehaviour adapter. |
+| `.cursor/packs/unity-game/guides/csharp-coding.md` | Naming, namespace, async, null checks, #region order. |
+| `.cursor/packs/unity-game/guides/performance.md` | Zero-alloc hot paths, caching, MaterialPropertyBlock, UI Canvas. |
+| `.cursor/packs/unity-game/guides/ecs-dots.md` | Authoring/Baker, component naming, ISystem, ECB, hybrid linking. |
+| `.cursor/packs/unity-game/guides/addressables.md` | No Resources.Load, handle lifecycle, UniTask async loading. |
 
 ## Recommended `.gitignore`
 

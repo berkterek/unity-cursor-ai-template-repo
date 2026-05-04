@@ -1,0 +1,19 @@
+---
+description: Use when writing or reviewing Unity service classes, modules, DI registration, or cross-module communication.
+globs: Assets/**/*.cs,_Framework/**/*.cs,_GameFolders/**/*.cs
+alwaysApply: false
+---
+
+# Architecture Rule
+
+Read `.cursor/packs/unity-game/guides/architecture.md` before implementing or reviewing any service, installer, provider, or cross-module dependency.
+
+Key rules (NON-NEGOTIABLE):
+
+- All game logic lives in pure C# classes — NO `using UnityEngine` in service classes.
+- MonoBehaviours are thin adapters only.
+- VContainer for all DI — NO singletons, NO `FindObjectOfType`.
+- IEventBus for cross-module communication — NO direct concrete references across modules.
+- Module structure: 5-file pattern (Interface, Service, Config, Installer, Events).
+- Providers live in `Concretes/[Module]/`, never inside the module folder.
+- No GameContext / service locator — each class declares only its own dependencies.

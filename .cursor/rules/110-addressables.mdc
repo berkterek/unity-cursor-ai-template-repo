@@ -1,0 +1,18 @@
+---
+description: Use when writing or reviewing any runtime asset loading code.
+globs: Assets/**/*.cs,_GameFolders/**/*.cs
+alwaysApply: false
+---
+
+# Addressables Rule
+
+Read `.cursor/packs/unity-game/guides/addressables.md` before writing or reviewing any asset loading code.
+
+Key rules (NON-NEGOTIABLE):
+
+- `Resources.Load` and `Resources.LoadAsync` are **forbidden** — use Addressables only.
+- Use `.ToUniTask(cancellationToken: ct)` — never use raw `.Task` on handles.
+- Never hardcode address strings — centralize in a static `AssetAddresses` constants class.
+- Every `LoadAssetAsync` handle MUST be released in `Dispose()` — check `handle.IsValid()` before releasing.
+- Addressables instances MUST be released with `Addressables.ReleaseInstance`, not `Destroy`.
+- Preload scene-start assets in an init system before gameplay begins.
